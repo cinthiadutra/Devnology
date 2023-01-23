@@ -18,7 +18,7 @@ List<GetPage> AppPages = [
       name: AppRoutes.splash,
       page: () => const Splash(),
       binding: AppBinding()),
-  GetPage(name: AppRoutes.carPay, page: () => CarPay(), binding: AppBinding()),
+  GetPage(name: AppRoutes.carPay, page: () => const CarPay(), binding: AppBinding()),
   GetPage(
       name: AppRoutes.product,
       page: () => const ProductDetails(),

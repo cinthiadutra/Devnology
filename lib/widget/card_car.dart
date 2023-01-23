@@ -1,6 +1,4 @@
-import 'dart:html';
 
-import 'package:devnology_app/main.dart';
 import 'package:flutter/material.dart';
 
 import 'package:devnology_app/widget/text_devnology.dart';
@@ -63,11 +61,11 @@ class CardCar extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                          onPressed: ontap(), icon: Icon(Icons.add_circle)),
+                          onPressed: ontap(), icon: const Icon(Icons.add_circle)),
                       Text('{$number.value}'),
                       IconButton(
                         onPressed: ontap(),
-                        icon: Icon(Icons.remove_circle),
+                        icon: const Icon(Icons.remove_circle),
                       )
                     ],
                   )

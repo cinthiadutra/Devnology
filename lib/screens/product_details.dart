@@ -110,7 +110,7 @@ class ProductDetails extends StatelessWidget {
                             onPressed: () {
                               PersistentNavBarNavigator
                                   .pushNewScreenWithRouteSettings(context,
-                                      screen:  CarPay(),
+                                      screen:  const CarPay(),
                                       withNavBar: true,
                                       settings: const RouteSettings(
                                           name: AppRoutes.carPay));

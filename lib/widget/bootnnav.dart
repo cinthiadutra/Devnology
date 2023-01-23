@@ -1,10 +1,8 @@
 import 'package:devnology_app/controllers/regra_controller.dart';
 import 'package:devnology_app/screens/car_screen.dart';
 import 'package:devnology_app/screens/home.dart';
-import 'package:devnology_app/thema/constantes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 
 class Bootnnav extends StatefulWidget {
   const Bootnnav({Key? key}) : super(key: key);
@@ -22,7 +20,7 @@ class _BootnnavState extends State<Bootnnav> {
       body: Obx(() {
         return IndexedStack(
           index: controller.indiceAtual.value,
-          children: [const Home(), const Home(),  CarPay(), Home()],
+          children: const [Home(), Home(),  CarPay(), Home()],
         );
       }),
       bottomNavigationBar: BottomNavigationBar(

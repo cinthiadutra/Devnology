@@ -11,7 +11,7 @@ import 'package:devnology_app/widget/text_devnology.dart';
 import 'package:devnology_app/widget/title_devnology.dart';
 
 class CarPay extends StatefulWidget {
-  CarPay({
+  const CarPay({
     Key? key,
   }) : super(key: key);
 
@@ -76,8 +76,7 @@ class _CarPayState extends State<CarPay> {
                                   ),
                                 ),
                                 TextDevnology.bold(
-                                  text: '\$${controller.pricetotal.obs}' ??
-                                      '5980,00',
+                                  text: '\$${controller.pricetotal.obs}',
                                   size: 24,
                                   cor: Colors.white,
                                   fontWeight: FontWeight.w700,
