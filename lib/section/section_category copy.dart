@@ -11,7 +11,7 @@ class SectionCategory1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25, right: 20, top: 30),
+      padding: const EdgeInsets.only(left: 25, right: 20, top: 25),
       child: SizedBox(
         height: 150,
         width: 600,

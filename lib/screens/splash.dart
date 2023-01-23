@@ -1,7 +1,8 @@
-import 'package:devnology_app/screens/home.dart';
+import 'package:devnology_app/core/app_routes.dart';
 import 'package:devnology_app/thema/constantes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -16,8 +17,7 @@ class _SplashState extends State<Splash> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     Future.delayed(const Duration(seconds: 3)).then((_) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const Home()));
+      Get.toNamed(AppRoutes.nav);
     });
   }
 

@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 
 import 'package:devnology_app/thema/constantes.dart';
 import 'package:devnology_app/widget/circular_card.dart';
+import 'package:get/get.dart';
 
 class CaroucelDevnology extends StatefulWidget {
   const CaroucelDevnology({
     Key? key,
   }) : super(key: key);
 
-
   const CaroucelDevnology.m({
     Key? key,
-
   }) : super(key: key);
 
   @override
@@ -22,40 +21,42 @@ class CaroucelDevnology extends StatefulWidget {
 class _CaroucelDevnologyState extends State<CaroucelDevnology> {
   final int _current = 0;
   final CarouselController _controller = CarouselController();
-  List<String> exampleList = [banner1, banner2];
-   List<String> exampleList2 = [note2];
+  Rx<List<String>> exampleList = Rx<List<String>>([banner1, banner2]);
+
+  List<String> exampleList2 = [note2];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CarouselSlider(
-          carouselController: _controller,
-          options: CarouselOptions(
-            autoPlay: false,
-            enlargeCenterPage: false,
-            viewportFraction: 0.94,
-            enableInfiniteScroll: false,
-            autoPlayCurve: Curves.linear,
-            onPageChanged: (index, reason) {
-              // setState(() {
-              //   _current = index;
-              // })
-            },
-          ),
-          items: exampleList.map((i) {
-            return Builder(
-              builder: (BuildContext context) {
-                return CircleImageView(
-                    imagePath: i, width: MediaQuery.of(context).size.width);
+        Obx(() {
+          return CarouselSlider(
+            carouselController: _controller,
+            options: CarouselOptions(
+              autoPlay: false,
+              enlargeCenterPage: false,
+              viewportFraction: 0.94,
+              enableInfiniteScroll: false,
+              autoPlayCurve: Curves.linear,
+              onPageChanged: (index, reason) {
+                // setState(() {
+                //   _current = index;
+                // })
               },
-            );
-          }).toList(),
-        ),
+            ),
+            items: exampleList.value.map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return CircleImageView(imagePath: i, width: Get.width);
+                },
+              );
+            }).toList(),
+          );
+        }),
         const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: exampleList.asMap().entries.map((entry) {
+          children: exampleList.value.asMap().entries.map((entry) {
             return GestureDetector(
               onTap: () => _controller.previousPage(),
               child: Container(

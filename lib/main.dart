@@ -1,9 +1,11 @@
-import 'package:devnology_app/screens/car_screen.dart';
-import 'package:devnology_app/screens/home.dart';
-import 'package:devnology_app/screens/product_details.dart';
-import 'package:devnology_app/screens/splash.dart';
-import 'package:devnology_app/screens/sucess.dart';
+import 'package:devnology_app/controllers/regra_controller.dart';
+import 'package:devnology_app/core/app_pages.dart';
+import 'package:devnology_app/core/app_routes.dart';
+import 'package:devnology_app/thema/constantes.dart';
+import 'package:devnology_app/widget/appbar_devnology.dart';
+import 'package:devnology_app/widget/bootnnav.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,24 +18,31 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-int indiceAtual = 0;
+final RegraController controller = Get.put(RegraController(), permanent: false);
 
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      initialRoute: '/splash',
-      routes: {
-        '/splash': (context) => const Splash(),
-        '/home': (context) => const Home(),
-        '/product': (context) => const ProductDetails(),
-        '/sucess': (context) => const Sucess(),
-        '/carPay': (context) => const CarPay(),
-      },
-      home: const Scaffold(
-        body: Home(),
-      ),
-    );
+    return GetMaterialApp(
+        theme: ThemeData(
+            appBarTheme: const AppBarTheme(backgroundColor: corBack),
+            secondaryHeaderColor: corBack,
+            primaryColor: corBack,
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+              backgroundColor: corBack,
+              unselectedIconTheme: IconThemeData(color: Colors.white),
+              selectedIconTheme: IconThemeData(color: corIconSelected),
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: corIconSelected,
+              unselectedItemColor: Colors.white,
+            )),
+        debugShowCheckedModeBanner: false,
+        title: 'Devnology',
+        initialRoute: AppRoutes.splash,
+        getPages: AppPage.routes,
+        home: const SafeArea(
+            child: Scaffold(appBar: AppbarDevnology(), body: Bootnnav())));
   }
 }

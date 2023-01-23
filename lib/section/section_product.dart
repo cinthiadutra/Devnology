@@ -1,7 +1,8 @@
-import 'package:devnology_app/screens/product_details.dart';
+import 'package:devnology_app/core/app_routes.dart';
 import 'package:devnology_app/thema/constantes.dart';
 import 'package:devnology_app/widget/card_product.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SectionProduct extends StatelessWidget {
   const SectionProduct({Key? key}) : super(key: key);
@@ -24,12 +25,7 @@ class SectionProduct extends StatelessWidget {
                   text: 'Lenovo 15.6" ThinkPad P15s Gen 1',
                   price: '\$ 1,519.00'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const ProductDetails(),
-                  ),
-                );
+                Get.toNamed(AppRoutes.product);
               },
             ),
             const CardProduct(

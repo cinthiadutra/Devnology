@@ -50,10 +50,9 @@ class Sucess extends StatelessWidget {
           const SizedBox(
             height: 93,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 110),
-            child: ButtonDevnology(text: 'MY ORDERS'),
-          )
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 110),
+              child: ButtonDevnology(text: 'MY ORDERS', onPressed: () => {})),
         ],
       ),
     );
